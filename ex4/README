@@ -1,0 +1,44 @@
+============================================================================
+README for ex4: Hangman Game.
+============================================================================
+
+============================================================================
+Description:
+in this ex we practices writing a whole program useing functions, loop,
+external files and user other programs' functions (hangman_helper) in out
+program.
+
+hangman.py -
+In this code i wrote a hangman game. the user needs to guess a random word the
+program chooses for him. the program notifies when user picked an an valid
+letter or a letter he had already chosen before. if the user made a mistake,
+the program adds another line to the hangman drawing. if user maximised his
+munber of errors he loses. if he guessed the word - he wins. in both cases
+programs display a message to user.
+check_update_word_pattern.py
+check function update_word_pattern
+****************Theoretical questions - ************************
+
+
+***********************SECTION C - Q1:*************************
+
+the test i wrote in file check update word pattern ment to check -
+
+# in case all letters needed to be updated are the same one after the other
+
+# in case several letters needed to be updated are the same are not
+ next to each other
+# in case the word is very long and the letter we need to update is the last
+ one
+# in case the letter is not in word and pattern should not be updated
+
+***********************SECTION C - Q2:*************************
+in order to play the game in hebrew i need to change the function
+is_user_input_valid(string) since it checks is.lower, when in hebrew there are
+no lower or upper cases. i would change the function to check if there are any
+an valid letters (numbers, signs, etc) and made sure only the letter א-ב .
+
+
+===================================================================
+
+

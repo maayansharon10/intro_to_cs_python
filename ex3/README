@@ -1,0 +1,109 @@
+============================================================================
+README for ex3: writing functions with loops and tests for funcrion
+============================================================================
+
+============================================================================
+Description:
+fist file - ex3.
+files:
+1. ex3.py
+functions:
+a) input_list():
+    """ check user_input, convvert to str and append in a list.
+    output - a list with user inputs"""
+b) concat_list(str_list):
+    """receives a list of strings as input, coneect them into
+    one string and the output is the concatenation"""
+c)maximum(num_list)
+    """input is a list of nums, output is the element with the largest value"""
+d)cyclic(lst1, lst2):
+    """receives 2 lists and return a boolean expression if the 2nd list is
+    can be received from the first list by shifting a side by m
+    steps (in a circular motion"""
+a sub function i used -
+shift_cycle
+    """shift the list one. input - list, output - list shifted backwards by
+    1"""
+e) seven_boom(n)
+    """7 boom. receives n>0, n is from class int,
+    output is a list where all numbers which divide by 7 or
+    has the digit 7 in them will be replayed with 'boom' """
+sub func - boom_list(n):
+    """func receives an n>0, creates list with 'boom' instad of the digit 7
+    or 7 multiply by any number"""
+f) histogram(n, num_list)
+    """A histogram is an accurate representation of the distribution of
+     numerical data. input is n of type int>0m and a list of numbers. ourput
+     is a list with the number of times each number appeared on original
+     list"""
+g) prime_factors(n)
+    """ input - a number. output - a list with all the number prime factors"""
+i used (math.sqrt(n)) due to the fundamental theorem of arithmetic
+sub func i used to execute - is_prime(num)
+"""input is a number, if the number is prime it returns True"""
+h) cartesian()
+i) pairs()
+
+2. check _maximum.py
+
+
+****************Theoretical questions - ************************
+what would be the outputs of my function when reciving those inputs -
+1. cyclic(123 ,321)
+    if len(lst1) != len(lst2):
+TypeError: object of type 'int' has no len()
+meaning - since it is int and not a list, the function can not know
+what the length of each argument. hence - gets an error
+
+2. maximum([-3, -2, -1])
+the output is -1, as we expected, since it is the element with the highest
+value.
+
+3. maximum([1, 10, 100, ‘intro’])
+SyntaxError: invalid character in identifier
+since maximum can only recieve int or float, not string
+
+4. histogram(3, [1,2,3,4])
+IndexError: list index out of range
+our new list consists of 3 elemets, meaning [0, 1, 2] and in this list there
+are 2 elemets we have no 'place' for (3 and 4), so we are out of range.
+
+5. prime_factors(0)
+the result is False. since 0 is not a prime number.
+
+6. pairs([0,0,1,1,2,2], 2)
+the result is : [[2, 0], [2, 0], [2, 0], [2, 0], [1, 1]]
+there are some duplications, but the function only takes one of each.
+
+
+
+***********************Part D - Testing Maximum()*************************
+
+---------****why i choose the following asserts - ****--------------------
+
+since they represent extreme casses, and we want to know the function can
+get any argument (which is allowed by definition) and run with no problems -
+1.    assert maximum ([]) == None "Failed to run maximum with empty " \
+                                     "list"
+the function, by definition needs to return None when the input is an empty
+list.
+2.    assert maximum([0, 0, 0]) == 0, "Failed to run all zeroes"
+the function, by definition needs to return 0 when the input is a list of 0.
+3.assert maximum([-3, -4, -35]) == -3, "Failed when maximum was negative"
+checking if the function can handle negative numbers
+4.    assert maximum([100,100,1]) == 100, "Failed when 2 nums are the same" \
+                                        " next to each other "
+checking if 2 numbers equal max
+5.    assert maximum([1,0,1]) == 1,   "Failed when 2 nums equal max, not next"
+                                    " to each other"
+another check which is almost like 4, but this time the 2 elements of the list
+which equal to max are not next to each other.
+6.    assert maximum([4,99,98]) == 98, "Failed when max is first"
+when max is last in the list
+7.    assert maximum([1]) == 1, "Failed when list consists of one num"
+checking if function can regonize max from a list with one element.
+8.    assert maximum([2.56, 3.79, 1.002]) == 3.79, "failed when arg were float"
+checking if the function can handle float, and not only ints .
+
+
+===================================================================

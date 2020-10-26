@@ -1,0 +1,108 @@
+============================================================================
+README for ex7: recursion functions
+============================================================================
+
+============================================================================
+Description:
+ex7.py
+in this ex we practices writing basic recursion functions and more
+complex recursion function with loops
+
+this file include the following functions and sub functions for them -
+
+def print_to_n(n):
+    """func input is an integer >= 1.
+    func counts up - prints out all ints from 1 to n """
+
+def print_reversed(n):
+    """ func input is an integer >=1
+    func counts down - prints out all ints from n to 1 """
+
+def is_prime(n):
+    """ input - int,
+    output is a bool regarding to if this n is prime- True or False"""
+
+def exp_n_x(n, x):
+    """ input - x is a float, n int n>0
+    calc the exponential sum of (x**i)/(i!) for i=0 to i=n"""
+
+def play_hanoi(hanoi, n, src, dest, temp):
+    """ solves game hanoi towers with graphic agr 'hanoi' """
+
+def print_sequence(char_list, n):
+    """input -  char_list and an int
+    output - prints out all combinations for in len(n) of chars from list,
+    when same char can appear more then once"""
+
+def print_no_repetition_sequences(char_list, n):
+    """input - list of characters, n - int
+    func prints out all combination for chars in list when char cannot
+    appear more then once in a word"""
+
+def parentheses(n):
+    """ input: - n - an int
+    :return a list with correct possibilities
+    func receives an int and prints out the possible
+    mathematically correct parentheses combination in a list, when every item
+    is a possibility"""
+
+def up_and_right(n, k):
+    """ input: n, k - both int
+    assuming we are on a grid at (0,0).
+    func prints out the possible moves we can make in order to get to (n,k),
+    when n is number of steps right and k is num of steps up the grid"""
+
+def flood_fill(image, start):
+    """input - image is list of lists with "*" or "." as items.
+     output - updated image """
+
+
+******************************************************************************
+
+          ==***** analyzing running time of functions*****==
+
+            *** is_prime(n) - analyzing running time ***
+firstly we will look at sub function is_prime calling -
+has_divisor_smaller_than(n, i) and analyze it's running time :
+there's 2 conditions 'if'.
+in first if func check one situation and returns a bool -  O(1)
+in second if - func calls itself (recursion) - O(n)
+then func returns calls itself again - O(n)
+in total - O(n) + O(n) + O(1) -> O(n)
+
+is_prime had one condition (if) - returns a bool - O(1)
+and then returns has_divisor_smaller_than(n, i) which is O(n)
+in total - O(1) + O(n) -> O(n)
+
+
+ *** print_no_repetition_sequences(char_list, n) - analyzing running time ***
+firstly we will look at sub function print_no_repetition_sequences calling -
+no_repetition_helper(char_list, n):
+there's a For loop go over all items in list - O(n)
+in For there's 3 conditions (if, if and else) -
+first if - returns a bool - O(1)
+second if - print out the word we have so far - O(1)
+else - calls func itself - O(n)
+so overall For loop is O(n) * O(n) = O(n^2)
+
+print_no_repetition_sequences calls no_repetition_helper - O(1)
+in total - O(n^2) + O(1) -> O(n^2)
+
+
+        *** flood_fill(image, start) - analyzing running time ***
+firstly we will look at sub function flood_fill calling -
+flood_helper(image, y, x) :
+over all we run on every 'cell' (item in sublist in image) one time only, so
+maximum running time of the function would be O(n):
+this func has 2 condition (if) - if happens func returns - O(1)
+and the second one (else_ in which func calls itself 4 times in a row
+(recursively)
+each time is O(n) * 4 = 4 * O(n) => O(n).
+in total - O(1) + O(n) => O(n)
+flood_fill itself unpacks a tuple once - O(1)
+and calls flood_helper - O(n)
+in total -  O(1) + O(n) -> O(n)
+
+===================================================================
+
+

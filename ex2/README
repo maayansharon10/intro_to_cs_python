@@ -1,0 +1,55 @@
+======================================
+README for ex2: 9 functions - practice
+======================================
+
+===================================================================
+Description: 5 different programs, including 9 different functions,
+intending to practice strings,conditions , functions, loops (for)
+user's input and lists.
+names of files attached to his README:
+1. convert_spoon_to_cup.py - functions which recieves a parameter and
+returns a value - converts messures.
+
+2. calculate_mathematical_expression.py - a function with the same name
+recieves 3 arguments and returns a result
+calculate_from_string() is also in this file, it uses the previuse function
+and convert a string to float.
+3. largest_and_smallest.py - user
+4.quadratic_equation.py - solves quadratic equation using if and bool
+expressions. the function recieves 3 arguments and returns 2 values.
+quadratic_equation_user_input() in the same file recieves an input from user,
+turns it into floats and then uses the first function to solve it. returns
+the results.
+5.shapes.py - asks user for the shape they want to calculate it's area,
+then, acroding to the shape choice, uses 3 sub-finctions to ask the ser for
+another input and then calculate the answer. (practecing a function which uses
+ a function).
+6.temperature.py - recives 4 tempatures and returns if at least 2 of the 3
+temps are larger than the the temp we use as a messure for hot/cold.
+practiced conditions.
+7.test_largest_and_smallest.pyt
+    in this file i wrote a testing function in order to check
+    the extreme cases of function 4, which is largest_and_smallest
+    from largest_and_smallest.py file. practiced if and conditions.
+    i decided to check 5 different cases and in this README i will
+    elaborate why i chose each.
+       a. in case_1 i created a situation where all numbers are the same.
+    input to function was - largest_and_smallest(0, 0, 0).
+    correct output would be- (0, 0)
+       b. in case_2  i created a situation where all numbers are not the same
+    input to function was - largest_and_smallest(1, 3, 5)
+    correct output would be- (5, 1)
+       c. in case_3 i created a situation where if num1=mun2 and num3
+    is the largest.
+    input to function was -largest_and_smallest(0, 0, 5)
+    correct output would be- (5, 0)
+       d. in case_4 i created a situation when num1=num2 and num 3 is the
+    smallest.
+    input to function was - largest_and_smallest(5, 5, 1)
+    correct output would be- (5, 1)
+       e. in case_5 i created a situation where if num2=num3 and num 1
+    is the largest
+    input to function was - largest_and_smallest(5, 3, 3)
+    correct output would be - (5, 3)
+
+===================================================================

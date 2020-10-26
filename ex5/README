@@ -1,0 +1,53 @@
+============================================================================
+README for exS: wordsearch.
+============================================================================
+
+============================================================================
+Description:
+wordsearch.py
+in this ex we practices writing and using loops, multi-dalmatians
+lists,
+dictionaries, arguments form command line and working with files.
+The aim of the ex is writing a program which finds words in a matrix of
+letters (like a crossword) while program receive its arguments from command
+line (file with word we wish to search, matrix of letter, output file and
+directions for search)
+
+
+check_wordsearch.py
+test for a function that find_words_in_matrix calls.
+
+******************************************************************************
+
+*** wordsearch.py***
+
+in my program we searched the first letter of every word in the list in the
+matrix, and when we find a match, meaning we suspect we found thr first letter
+of our word, we check if the next letter in the same direction also
+matches the second letter in our word and so on, up until we have the full word
+we searched. if so - we add it to a list. at the end the program gives us a
+list of pairs (as tuples) with the word we found and number of time it
+appeared for the directions we searched.
+
+
+Separetion to function -
+we have the main func which control the search(the program).
+the other main functions are:
+- check_input_args which uses sub funcs that
+check if file exsist or if directions are valid.
+- find_word_in_matrix that uses sub funcs to cound the number of times word
+appears in matrix, append in dictionary and later appand it to a list of
+tuples, which the func returns.
+-write_output_file which add the new tuples in our result list to an output
+file in the way we were instracted.
+
+
+*** check_wordsearch.py ***
+we checked the function that count the number of time the word appeared in all
+the directions we checked.
+i chose some extreme cases such as long dangle words, big matrix, a lot of
+repetitions for one place, same direction appeases several times and a case
+where there is a word of one letter.
+===================================================================
+
+

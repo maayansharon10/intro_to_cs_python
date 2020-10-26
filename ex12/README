@@ -1,0 +1,24 @@
+============================================================================
+README for ex12: four_in_a_row.py
+============================================================================
+Authors of this code: maayan.sharon and Lior.Tamir
+============================================================================
+attached to this file: four_in_a_row.py, game_runner.py, ui.py, player.py,
+ai.py, board.py, game.py.
+
+Description:
+The basic game Four in a Row is using a main class: Game, which uses
+classes Board and Player (has 2 classes which uses it in heritage: AiPlayer and
+ HumanPlayer).
+In order to deal with computer-based players, the class AI is providing the
+"brain" for AiPlayer.
+In order to run the game, class "Controller" is "connecting the dots": using
+the game functions and adding some others which allow creating a whole flow of
+the game.
+For a visual display of the game, we created class Ui. Ui knows the controller,
+ and "translates" the players choices into commands in the controller.
+
+ The computer-player is using a recursive function which tries to predict good
+ options for placing the disc. Note: This is not a Bonus costumed function.
+
+******************************************************************************

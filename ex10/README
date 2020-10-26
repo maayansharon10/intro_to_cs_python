@@ -1,0 +1,129 @@
+============================================================================
+README for ex10: Asteroids game
+============================================================================
+
+============================================================================
+Description:
+ex10.py
+in this ex we practices writing a program with a partner using different
+classes and different files, while each class is independent.
+we also practiced writing privet and public function in class and using them
+ in other classes/program
+we practiced writing loops and functions with arguments, and program
+receiving arguments form command line.
+
+
+this file include the following files  -
+asteroid.py with class Asteroid
+ship.py with class Ship
+torpedo.py with class Torpedo.
+asteroids_main.py with class GameRunner and main func which operates game
+
+
+ our program includes 4 files and a helper name screen.
+ ship launched on screen on a random place, can turn to each direction when
+ user's pressing left or right and go faster by pressing up. ship can fire
+ torpedos to boom asteroids by pressing space and teleport itself to a new
+ location while pressing T. game over in 3 cased - while user chose to exit
+ (pressed q), user distroyed all asteroids and only ship was left in the game,
+  or ship ran out of life.
+
+in GameRunner, class which operates the game, we place all object on screen,
+and each itaration of the game we check if user pressed some keyboard and
+ accordingly we move those object on screen. notice asteroids move on screen
+even if player did not move the ship.
+
+for future objects each object of the game must include the following params in
+ his constructor - location on x axis, location on y axis, radius, function
+ name change_location(self, locx, locy)
+
+design of the program -
+decision we had to make in the designing of the program -
+
+1.  we divided our functions so each object own its data regarding its basic
+  parameters. we set them in init func of each class.
+  our intention was that each object will hold his information so would be easy
+   to change and will easily adupt to different programs. for example -
+ each asteroid object clac its own location and can check it it has
+ intersaction with another object in game.
+
+
+2.  one function mange a few sub functions for a modular code -
+this way functions are more likely to be shorter and easier to change.
+for example -
+in asteroids_main -
+    def explosions(self):
+        Main function for handling explosions in game.
+        1) looks for collisions of torpedos and asteroids.
+        2) If a collision has been detected:
+            a) raise points of game, show to user
+            b) change size of asteroid or make it disappear
+            c) erase torpedo from game
+so this func calls asteroid.has_intersection, asteroid_reaction_to_explosion,
+and update_torpedo_status. each one of them handle one task (some with other
+sub func)
+
+according to the same train of thoughts - def collision(self) also manage
+collisions and calls all functions that deals with collisions.
+
+as part of this attempt we tried to generalized functions and objects so we
+could use same function or dict for example for multiple purpurses.
+a clear example would be def move_all_objects() - move all objects on screen.
+we can call this function with *any* object in game (asteroid, torpedo, ship).
+Another example -
+ we used one dictionary for all msgs presented to user on screen (collitions,
+game over from different reasons).
+
+3. as we decribed, game over in 3 cased - while user chose to exit (pressed q),
+user distroyed all asteroids and only ship was left in the game, or ship ran
+out of life.
+since there are a few extreme cases to when user won/lost we had to adress
+those issues when we decided how to end our game.
+
+we decided to organize our functions in the following format:
+ the first priority is if ship has no life, meaning user lost, and then game
+ is over. if ship has no life points it simply cannot exists.
+ the second priority is if user distroyed all asteroidsm then user won, since
+ this is the main goal in the game.
+the 3rd one is if user chose to exit game (by pressing q),and then game is over
+ without any win/lost result.
+
+ in case there's the last asteroid stands in game and ship collide with it,
+ although after colission there are no asteroids in game, user lost. since user
+  win if and only if after all asteroids are gone, shio still exists.
+  (logically it make sense since if game had a few levels, if ship was
+ also dystroyed, it cannot keep fighting asteroids or different object in the
+ next levels, therefore, user lost.
+
+another observations we had in designing this program:
+
+4.also we used magic numbers when we could so code would be easy to change.
+(we can see that in file asteroids_main.py, before the def of the class.
+
+5. ship life initiates in Ship init since ship object has life point of 3 in
+every game ship instance is involves with
+
+
+#########################################################################
+
+here we elaborate regrading which files we imported in each file we have in
+this zip:
+
+##########################################################################
+in all ship, torpedo and asteroid have get and set funcs to each param they
+have in their constructor.
+
+file asteroids_main.py
+in this file we import Screen, sys, random, Ship, Asteroid, Torpedo,math.
+in this file we have the class GameRunner,
+ have if __name__ == "__main__", there we receive the arguments from command
+ line and if valid - calls main and func 'main' which creates an
+object of type GameRunner and calls it with func '.run' to activate game.
+
+file ship.py - in this file we import math
+file asteroids_main.py - in this file we import Torpedo, math, screen, sys,
+ship, asteroids, random
+file torpedo.py
+
+==============================================================================
+

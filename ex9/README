@@ -1,0 +1,163 @@
+============================================================================
+README for ex8: rush hour game
+============================================================================
+
+============================================================================
+Description:
+ex9.py
+in this ex we practices writing a program using different classes and different
+ files, while each class is independant.
+we also practiced writing privet and public function in class and using them
+ in other classes/program
+we also practiced writing loops and functions with arguments, and program
+receiving argument form command line.
+
+
+this file include the following files  -
+car with Class Car
+board with Class Board
+Game with Class Game and main func which start the game and runs it
+
+car -
+Class Car - includes the following constractor and methods :
+  def __init__(self, name, length, location, orientation):
+        """
+        A constructor for a Car object
+        :param name: A string representing the car's name
+        :param length: A positive int representing the car's length.
+        :param location: A tuple representing the car's head (row, col)location
+        :param orientation: One of either 0 (VERTICAL) or 1 (HORIZONTAL)
+        ""
+
+    def __get_location(self):
+    def __get_length(self):
+    def __get_orientation(self):
+    def car_coordinates(self):
+        """
+        :return: A list of coordinates the car is in
+        """
+
+    def possible_moves(self):
+        """
+        :return: A dictionary of strings describing possible movements permitted by this car.
+        """
+    def movement_requirements(self, movekey):
+    def move(self, movekey):
+        """
+        :param movekey: A string representing the key of the required move.
+        :return: True upon success, False otherwise
+        """
+    def get_name(self):
+        """
+        :return: The name of this car.
+
+
+******************************************************************************
+file board
+
+Class Board includes the following :
+class Board:
+    """
+    constacts an object of type board with cars on it,
+    operates methods on board according to board limitation,
+    for example moves cars around
+    according to board's limits.
+    """
+    def __init__(self):
+        """A constructor for a Board object"""
+    def __str__(self):
+        """
+        This function is called when a board object is to be printed.
+        :return: A string of the current status of the board
+        """
+    def cell_list(self):
+        """ This function returns the coordinates of cells in this board
+        :return: list of coordinates
+        """
+    def __is_cell_valid(self, cell):
+        """receives a tuple of ints (row, col).
+        if cell is empty - return True
+        if cell is not empty or not in board - return False
+        """
+    def possible_moves(self):
+        """ This function returns the legal moves of all cars in this board
+        :return: list of tuples of the form (name,movekey,description)
+                 representing legal moves"""
+
+    def target_location(self):
+        """
+        This function returns the coordinates of the location which is to be
+        filled for victory.
+        :return: (row,col) of goal location
+        """
+    def cell_content(self, coordinate):
+        """
+        Checks if the given coordinates are empty.
+        :param coordinate: tuple of (row,col) of the coordinate to check
+        :return: The name if the car in coordinate, None if empty
+        """
+    def __is_car_on_board(self, car):
+        """checks if car is on board.
+         i
+         if so - return True, if not, return False"""
+    def add_car(self, car):
+        """
+        Adds a car to the game.
+        :param car: car object of car to add
+        :return: True upon success. False if failed
+        """
+    def __change_board(self, car_to_move, cords, movekey, list_of_cords):
+        """input - car_to_move - object of type Car(), new_car_head -
+        location, movekey.
+        :return updated board with car on it, true or false"""
+    def move_car(self, name, movekey):
+        """
+        moves car one step in given direction.
+        :param name: name of the car to move
+        :param movekey: Key of move in car to activate
+        :return: True upon success, False otherwise
+        """
+******************************************************************************
+file game
+
+class Game includes the following -
+class Game:
+    """
+    Class of type Game intending to create an run a rush hour game
+    """
+
+    def __init__(self, board):
+        """ a constractor.
+        Initialize a new Game object.
+        :param board: An object of type board
+        """
+    def __is_move_input_valid(self, move_input):
+        """checks if user input, which is a string for move is valid
+        :return True if move_input is valid"""
+    def __single_turn(self):
+        """
+        The function runs one round of the game :
+            1. Get user's input of: what color car to move, and what
+                direction to move it.
+            2. Check if the input is valid.
+            3. Try moving car according to user's input.
+        """
+    def game_still_going(self):
+        """func checks of game is still going. returns True is it does,
+        False otherwise"""
+
+    def play(self):
+        """
+        The main driver of the Game. Manages the game until completion.
+        :return: None
+        """
+    if __name__ == "__main__":
+    - load jason file and append cars on board if cars are valid,
+    - create a new game of class Game
+    - calls game
+
+** in this file imported board, car, helper, sys
+
+=============================================================================
+
+

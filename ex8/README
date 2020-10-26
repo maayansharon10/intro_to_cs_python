@@ -1,0 +1,104 @@
+============================================================================
+README for ex8: soduko recursion functions
+============================================================================
+
+============================================================================
+Description:
+ex7.py
+in this ex we practices writing a recursive program, soduko, and writing
+recursive functions which prints lists of different sets. we also practiced
+loops and writing functions with arguments.
+
+
+this file include the following functions and sub functions for them -
+
+
+sudoku -
+we look at a n*n table. 0 means an empty cell
+k runs from 1 to n including
+for n*n cells we look at cell i and check - if cell is not 0 - backtrack
+meaning check the next cell (i+1).
+if it is 0 :
+check if k is valid in this is cell, if so, append and check the next cell
+(backtrack - up until func went through all cells).
+if backtracking returned False and did not managed to fill in all cells, and
+tried all k it change the cell back to 0 (empty) and return False.
+if there is a solution, func returns True and change board to solved board.
+
+def is_valid_in_row(board, k, y, n):
+    """func checks if k (int) is valid in row of cell [y][x]"""
+    returns - True/False
+def is_valid_in_cul(board, k, x, n):
+    """checks if k is in cul """
+    returns - True/False
+def is_valid_in_square(board, k, row, column, n):
+    """func checks if k is in square of size the root of n"""
+    returns - True/False
+def is_k_valid(board, k, column, row, n):
+    """func checks if the num k is valid in board of size n, in cell [y][x]
+     and returns True or False"""
+     calls - is_valid_in_row(), is_valid_in_cul(), is_valid_in_square()
+    returns - True/ False
+# main helper func -
+def sudoku(board, i, n):
+    """func solves suduko.
+    inputs are: board - list of lists of mat of n*n cells
+    n - size of length and width of board
+    i - the cell of board from 0 to n-1.
+    :return board with solution if there is a solution or board as is if
+    there's no solution"""
+    returns True (and board is changed to solved board) or False (and board is
+    stays as is).
+# main sudoku function
+def solve_sudoku(board):
+    """func solves soduko
+    :return True, and board is updated with solution if there is one.
+    False - and then board stays as is """
+
+
+
+------------------------------part 2 -----------------------------------------
+
+here we wrote function according to specific instruction in exercise
+
+
+def print_k_subsets(n, k):
+    """func prints all sub sets of size k of group 0 to n-1 in a
+    sorted way from small to large element if k<= n  (calls sub functions)"""
+uses sub functions -
+def print_k_subsets_helper(cur_set, k, index, picked):
+    """ func prints out all 'good' options for a set of size k of a group {
+    0,..,n-1} in a sorted from small to large """
+def print_set(cur_set):
+    """func unpack tuple and append all index with value True to list,
+    then print list"""
+
+
+def fill_k_subsets(n, k, lst):
+    """get to ints n,k creates a list with all sub sets of size k of 0 to n"""
+uses sub functions -
+def fill_k_subsets_helper(cur_set, k, index, picked, lst):
+    """update lst according to the index and cur_set, so in every sublist
+    there's a list with only the valid indexes we need. then call func again
+    and backtrack """
+def create_list_of_s(cur_set):
+    """func unpacks tuple (index, True/False), when true, append index to
+    list. returns list"""
+
+
+def return_k_subsets(n, k):
+    """picks only good options for lists of size k, append to list and
+    returns it so we get a list of lists with each sublist is with k
+    different elements """
+uses sub function -
+def helper_return_k_no_args(n, k):
+    """creates and returns a list with all options of set of len k from
+    elements 0 to n """
+
+
+******************************************************************************
+in this file also imported copy module
+
+=============================================================================
+
+

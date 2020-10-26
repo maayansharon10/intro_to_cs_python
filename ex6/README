@@ -1,0 +1,72 @@
+============================================================================
+README for ex6: wave_editor.py
+============================================================================
+Authors of this code: Lior.Tamir and maayan.sharon
+============================================================================
+attached to this file: wave_editor.py, AUTHORS file.
+
+Description:
+wave.editor.py
+in this ex wrote a program for editing wave typed audio files, in which the
+user can edit a .wav file, keep changing it as he wishes, merge two different
+.wav files and keep editing the result, compose a conposition and save the
+file when he wishes.
+In this exercise we practices working with files - changing files according to
+user's input, changing audio data accordindly, saving new files, etc.
+We also practiced using loops, functions and writing a program with a partner.
+
+
+
+******************************************************************************
+
+                        *** wave_editor.py ***
+
+There is a main function called main_menu from which the program runs and it
+calls all other functions.
+this function calls display_main_menu and get a valid user input.
+As long the user continue to choose any vaild option exept leave game ( =4 )
+the while loop keeps on running and each time the list with the audio date
+(modified_list) and the frame_rate change according to his choices within
+every sub menu.
+&& once wave file is loaded it is converted to list of lists and our functions
+deals with audio data as lists.
+There are 4 main options -
+change wav file, merge 2 wave files, compose or exit.
+as one can see our code is also divided accordingly, with general functions
+first and then functions for each main option (except exit ofcourse).
+
+
+Therefore we will elaborate mainly about those 3 main options -
+while user chose to edit an exsisting file  - change_wav_file_main a display
+msg appears and once input is valid, it modifiy the audio data (presented as a
+list of lists called modified_list) according to the user's choice -
+reverse, fast forward, slow down, volume up, volume down and low pass filter.
+here we sepated functions so each one proforms one chane in list of audio
+data.
+once done, user can choose in Transition Menu if he wises to SAVE or CHANGE
+audio data again.
+
+if user choose SAVE at any point he is at transition menu - file is saved,
+func returns an integer notifying the main_menu to start while loop again at
+change_wav_file_main.
+if user chooses to CHANGE file than func return an integer notifying the
+main_menu to break while loop and start again at change_wave_file.
+
+another option for the user to choose is merging two wave files. function
+asks user for 2 file names/directory. once input is valid, function checks if
+sample_rates are the same. if not if convert to same sample rate. here we
+decided to separate into smaller function so each one of them would be more
+spesific. for example, one function organizes the lists and sample rate in
+order so next function could take the higher sample rate and it's list and
+convert to lower sample rate. function also calls sub functions and deals with
+lists with different length as requested.
+
+another option is creating a compotion. in order to compose user is ask to
+load a file with instractions. once file is valid, function convert it into a
+list of lists, translate the instractions to musical notes with regard to max
+and min volume, and then append them to  a list of list (each sub list have
+[right ear, left ear] ) as all other audio lists in the program which can be
+saved as a wav. file or changed like any other existing file.
+
+============================================================================
+
